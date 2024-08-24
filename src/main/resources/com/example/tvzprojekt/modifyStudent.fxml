@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="301.0" prefWidth="505.0" style="-fx-border-color: transparent;" styleClass="dashboard" stylesheets="@../../../stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tvzprojekt.Controllers.ModifyStudentController">
+   <children>
+      <VBox layoutX="4.0" layoutY="1.0" prefHeight="300.0" prefWidth="500.0">
+         <children>
+            <Label alignment="CENTER" text="Uređivanje studenta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Ebrima Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="122.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label layoutX="10.0" layoutY="14.0" text="Ime : " textFill="WHITE">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="44.0" text="Prezime : " textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="74.0" text="Datum Rođenja :" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="104.0" text="Smjer :" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="136.0" text="Godina :" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labime" layoutX="35.0" layoutY="14.0" text="JMBAG :" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labprezime" layoutX="35.0" layoutY="14.0" text="JMBAG :" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labdatum" layoutX="35.0" layoutY="14.0" text="JMBAG :" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labsmjer" layoutX="35.0" layoutY="14.0" text="JMBAG :" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labgodina" layoutX="35.0" layoutY="14.0" text="JMBAG :" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="valime" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="valprezime" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="valgodina" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <DatePicker fx:id="valdatum" styleClass="choice-box" stylesheets="@../../../stylesheet.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </DatePicker>
+                  <ChoiceBox fx:id="valsmjer" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Mehatronika" />
+                           <String fx:value="Strojarstvo" />
+                           <String fx:value="Računalstvo" />
+                           <String fx:value="Elektrotehnika" />
+                           <String fx:value="Informatika" />
+                           <String fx:value="Građevina" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+               </children>
+            </GridPane>
+            <Label text="Ukoliko ne želite mijenjati karakteristike samo ostavite prazno" textFill="WHITE">
+               <font>
+                  <Font name="Ebrima Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" top="7.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="50.0" prefWidth="500.0">
+               <children>
+                  <Button fx:id="accept" mnemonicParsing="false" onAction="#acceptDialog" text="Uredi" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="165.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelDialog" text="Odustani" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="49.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

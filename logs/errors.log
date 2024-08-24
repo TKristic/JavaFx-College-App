@@ -1,0 +1,186 @@
+2024-02-09 19:56:31,480 INFO [JavaFX Application Thread] c.e.t.Main [Main.java:35] lecagoooo
+2024-02-09 20:02:59,708 ERROR [JavaFX Application Thread] c.e.t.Main [JMBAGInputException.java:9] JMBAGInputException -> unesen krivi format JMBAG-a
+2024-02-09 20:03:10,725 ERROR [JavaFX Application Thread] c.e.t.Main [JMBAGInputException.java:9] JMBAGInputException -> unesen krivi format JMBAG-a
+2024-02-09 20:03:13,617 ERROR [JavaFX Application Thread] c.e.t.Main [PraznoPolje.java:8] PraznoPolje -> nisu ispunjena sva input polja
+2024-02-09 20:13:59,847 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-09 20:14:09,267 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:142] Nije odabran entitet za ovu akciju
+2024-02-15 11:20:23,977 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:22:37,677 ERROR [JavaFX Application Thread] c.e.t.Main [AddTransakcijaController.java:83] Navedeni JMBAG ne postoji u bazi
+2024-02-15 11:25:23,994 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:29:41,705 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:44:57,860 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:46:58,757 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:48:10,202 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:48:45,838 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 11:49:49,952 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:00:15,327 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:04:16,321 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:05:20,195 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:06:19,489 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:17:23,615 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:19:43,089 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:23:13,237 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:25:48,313 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:31:38,230 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:33:56,286 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:36:28,146 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:39:21,765 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:40:11,031 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:41:06,318 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:41:51,830 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:42:15,457 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:43:54,206 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:45:48,520 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:49:12,301 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:50:28,619 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:54:02,558 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:54:32,934 ERROR [JavaFX Application Thread] c.e.t.Main [PraznoPolje.java:8] PraznoPolje -> nisu ispunjena sva input polja
+2024-02-15 12:56:05,039 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 12:56:19,877 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:142] Nije odabran entitet za ovu akciju
+2024-02-15 13:03:55,151 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:05:25,325 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:06:07,857 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:07:51,357 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:08:09,594 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:08:53,160 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:10:18,893 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:15:05,211 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:17:06,496 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:17:44,942 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:18:04,140 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:20:14,425 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:20:49,929 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:21:26,798 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:22:03,497 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:36:23,434 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-02-15 13:37:37,760 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] admin se ulogirao
+2024-07-02 19:13:10,194 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:68] ADMIN je registriran
+2024-07-02 19:14:38,016 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:66] Password nije ispravan
+2024-07-02 19:14:44,041 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:66] Password nije ispravan
+2024-07-02 19:15:24,155 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:66] Password nije ispravan
+2024-07-02 19:15:36,522 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:66] Password nije ispravan
+2024-07-02 19:15:38,231 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:66] Password nije ispravan
+2024-07-02 19:16:25,792 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:40:35,067 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:41:58,028 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:45:44,431 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:47:14,601 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:48:03,908 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 19:49:42,346 ERROR [JavaFX Application Thread] c.e.t.Main [JMBAGInputException.java:9] JMBAGInputException -> unesen krivi format JMBAG-a
+2024-07-02 23:38:39,024 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 23:44:42,365 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 23:45:26,742 ERROR [JavaFX Application Thread] c.e.t.Main [PraznoPolje.java:8] PraznoPolje -> nisu ispunjena sva input polja
+2024-07-02 23:48:37,708 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 23:53:50,477 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 23:54:52,224 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-02 23:58:05,202 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:07:08,180 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:10:05,331 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:12:46,231 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:13:38,051 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:15:20,018 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:15:49,059 ERROR [JavaFX Application Thread] c.e.t.Main [AddEventController.java:189] UnpickedEntity -> nije odabran element iz liste
+2024-07-03 00:19:06,304 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:21:56,024 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:23:42,715 ERROR [JavaFX Application Thread] c.e.t.Main [EventsController.java:137] Nije odabran entitet za ovu akciju
+2024-07-03 00:25:46,468 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 00:26:31,895 ERROR [JavaFX Application Thread] c.e.t.Main [JMBAGInputException.java:9] JMBAGInputException -> unesen krivi format JMBAG-a
+2024-07-03 12:15:03,079 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 12:15:46,472 ERROR [JavaFX Application Thread] c.e.t.Main [JMBAGInputException.java:9] JMBAGInputException -> unesen krivi format JMBAG-a
+2024-07-03 12:16:38,271 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 12:17:36,211 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 12:20:27,169 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 12:34:46,679 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 12:37:34,414 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 15:07:00,762 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 19:16:15,304 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 19:38:18,749 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:60] ADMIN se ulogirao
+2024-07-03 23:15:34,618 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:52] Toni je registriran
+2024-07-03 23:16:34,866 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:52] Rebecca je registriran
+2024-07-03 23:17:56,341 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] admin je registriran
+2024-07-03 23:31:54,421 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] admin se ulogirao
+2024-07-03 23:32:21,890 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] korisnik je registriran
+2024-07-03 23:32:52,751 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] korisnik je registriran
+2024-07-03 23:32:59,963 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] korisnik se ulogirao
+2024-07-03 23:34:05,268 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] aaaa je registriran
+2024-07-03 23:34:09,190 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:34:10,787 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:34:12,052 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] aaaa se ulogirao
+2024-07-03 23:34:42,012 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:34:43,807 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] korisnik se ulogirao
+2024-07-03 23:34:44,812 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:35:06,466 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:35:07,945 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:35:08,894 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:35:20,878 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:35:22,284 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:85] Uneseni user ne postoji u bazi podataka
+2024-07-03 23:35:23,602 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:93] Password nije ispravan
+2024-07-03 23:36:13,133 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:94] Password nije ispravan
+2024-07-03 23:36:33,814 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:94] Password nije ispravan
+2024-07-03 23:36:43,151 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:94] Password nije ispravan
+2024-07-03 23:37:21,558 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] admin se ulogirao
+2024-07-03 23:37:22,557 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:94] Password nije ispravan
+2024-07-03 23:37:56,081 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] admin se ulogirao
+2024-07-03 23:38:15,035 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:95] Password nije ispravan
+2024-07-03 23:38:25,073 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:95] Password nije ispravan
+2024-07-03 23:41:34,946 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:95] Password nije ispravan
+2024-07-03 23:43:04,552 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] admin je registriran
+2024-07-03 23:43:13,200 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:51] korisnik je registriran
+2024-07-03 23:43:19,928 ERROR [JavaFX Application Thread] c.e.t.Main [LogInController.java:95] Password nije ispravan
+2024-07-03 23:43:28,887 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:79] admin se ulogirao
+2024-07-03 23:46:05,298 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] korisnik se ulogirao
+2024-07-04 00:30:56,022 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 00:32:33,278 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 00:52:54,919 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 00:54:49,500 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 00:59:33,971 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:07:39,700 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:08:21,383 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:09:52,474 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:12:57,026 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:14:13,516 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:14:48,046 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:24:48,111 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:33:03,816 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:35:54,951 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:41:26,751 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:43:12,012 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:46:46,114 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:49:06,664 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 01:54:24,825 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:03:44,682 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:03:51,863 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:201] Nije odabran entitet za ovu akciju
+2024-07-04 02:05:52,902 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:13:27,036 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:13:35,792 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:201] Nije odabran entitet za ovu akciju
+2024-07-04 02:14:51,096 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:32:19,538 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:33:50,722 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:35:27,041 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:36:24,530 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:37:48,380 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:42:07,242 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:42:35,680 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:43:13,043 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:43:46,785 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:47:05,582 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 02:49:52,409 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 10:28:50,952 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 10:33:16,458 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 10:48:10,585 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 11:20:02,010 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 11:49:25,909 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 11:51:31,451 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] korisnik se ulogirao
+2024-07-04 11:53:07,881 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:189] korisnik nema permisiju za izvršavanje ove radnje
+2024-07-04 11:53:11,425 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:189] korisnik nema permisiju za izvršavanje ove radnje
+2024-07-04 11:53:18,930 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:133] korisnik nema permisiju za izvršavanje ove radnje
+2024-07-04 11:53:36,538 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 14:12:09,345 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 14:23:39,295 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:82] admin se ulogirao
+2024-07-04 14:26:07,136 ERROR [JavaFX Application Thread] c.e.t.Main [AddTransakcijaController.java:84] Navedeni JMBAG ne postoji u bazi
+2024-07-04 14:54:14,857 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:84] korisnik se ulogirao
+2024-07-04 15:09:54,451 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:83] admin se ulogirao
+2024-07-04 15:53:21,331 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:83] admin se ulogirao
+2024-07-04 15:57:44,573 ERROR [JavaFX Application Thread] c.e.t.Main [AddTransakcijaController.java:84] Navedeni JMBAG ne postoji u bazi
+2024-07-04 15:58:23,973 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:83] korisnik se ulogirao
+2024-07-04 15:58:28,810 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:189] korisnik nema permisiju za izvršavanje ove radnje

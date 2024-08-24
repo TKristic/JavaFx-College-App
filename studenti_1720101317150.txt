@@ -1,0 +1,5 @@
+0241329019,Marko,Barić,2001-09-13,Strojarstvo,4
+0244199505,Marko,Puljić,2001-07-14,Strojarstvo,3
+0245143709,Marko,Sertić,2004-07-17,Informatika,1
+0245506035,Marko,Vuković,2002-12-09,Mehatronika,3
+0246971799,Marko,Rukavina,1999-12-17,Informatika,1
