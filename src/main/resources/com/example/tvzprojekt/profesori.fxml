@@ -33,7 +33,7 @@
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>
                         </ImageView>
-                        <Label alignment="CENTER" text="Profesori" textFill="WHITE">
+                        <Label alignment="CENTER" text="Dashboard" textFill="WHITE">
                             <font>
                                 <Font name="Ebrima" size="24.0" />
                             </font>
@@ -145,6 +145,23 @@
                         </Label>
                     </children>
                 </HBox>
+                <HBox fx:id="tecajBtn" layoutX="11.0" layoutY="392.0" onMouseClicked="#showTecajScene" prefHeight="56.0" prefWidth="300.0" styleClass="btn">
+                    <children>
+                        <FontAwesomeIcon fill="#7c8184" glyphName="LIST" size="2.5EM">
+                            <HBox.margin>
+                                <Insets left="18.0" top="15.0" />
+                            </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label text="Tečajna lista" textFill="#7c8184">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="23.0" top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
                 <Label fx:id="korisnik" text="Korisnik : " textFill="WHITE">
                     <font>
                         <Font name="Ebrima Bold" size="18.0" />
@@ -162,8 +179,7 @@
                     </VBox.margin>
                 </Label>
             </children>
-        </VBox>
-        <GridPane layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" styleClass="dashboard" stylesheets="@../../../stylesheet.css">
+        </VBox>        <GridPane layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" styleClass="dashboard" stylesheets="@../../../stylesheet.css">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="350.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="350.0" />

@@ -2,7 +2,6 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Profesor;
 import com.example.tvzprojekt.Model.Transakcija;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

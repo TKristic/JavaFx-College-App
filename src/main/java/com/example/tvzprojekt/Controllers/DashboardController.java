@@ -52,6 +52,7 @@ public class DashboardController extends Transitions {
     public HBox eventBtn;
     @FXML
     public HBox logBtn;
+
     @FXML
     public Label korisnik;
     @FXML

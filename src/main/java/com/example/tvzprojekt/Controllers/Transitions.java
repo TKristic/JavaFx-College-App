@@ -98,6 +98,21 @@ public abstract class Transitions {
         Main.getStage().show();
     }
 
+    public void showTecajScene() {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("tecajnaLista.fxml"));
+        Scene scene = null;
+
+        try{
+            scene = new Scene(fxmlLoader.load()); // tu se lomi program
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        Main.getStage().setScene(scene);
+        Main.getStage().show();
+    }
+
+
     public void Odjava() {
         System.exit(0);
     }
