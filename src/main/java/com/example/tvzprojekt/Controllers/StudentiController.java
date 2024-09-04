@@ -2,7 +2,7 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Student;
+import com.example.tvzprojekt.Model.StudentBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +16,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.controlsfx.glyphfont.FontAwesome;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -44,19 +43,19 @@ public non-sealed class StudentiController extends Transitions implements Search
     @FXML
     public HBox logBtn;
     @FXML
-    public TableView<Student> studentiTab;
+    public TableView<StudentBuilder> studentiTab;
     @FXML
-    public TableColumn<Student, String> jmbag;
+    public TableColumn<StudentBuilder, String> jmbag;
     @FXML
-    public TableColumn<Student, String> ime;
+    public TableColumn<StudentBuilder, String> ime;
     @FXML
-    public TableColumn<Student, String> prezime;
+    public TableColumn<StudentBuilder, String> prezime;
     @FXML
-    public TableColumn<Student, Date> datumRodenja;
+    public TableColumn<StudentBuilder, Date> datumRodenja;
     @FXML
-    public TableColumn<Student, String> smjer;
+    public TableColumn<StudentBuilder, String> smjer;
     @FXML
-    public TableColumn<Student, Integer> godina;
+    public TableColumn<StudentBuilder, Integer> godina;
     @FXML
     public ChoiceBox kategorije;
     @FXML
@@ -66,9 +65,9 @@ public non-sealed class StudentiController extends Transitions implements Search
     @FXML
     public Label status;
 
-    public static Student odabraniStudent;
+    public static StudentBuilder odabraniStudentBuilder;
 
-    public static ObservableList<Student> studentiList;
+    public static ObservableList<StudentBuilder> studentiList;
 
     @FXML
     public void initialize() {
@@ -100,8 +99,8 @@ public non-sealed class StudentiController extends Transitions implements Search
                 Integer godina = Integer.valueOf(resultSet.getInt("GODINA"));
 
 
-                Student student = new Student(jmbag, ime, prezime, datumRodenja, smjer, godina);
-                studentiList.add(student);
+                StudentBuilder studentBuilder = new StudentBuilder(jmbag, ime, prezime, datumRodenja, smjer, godina);
+                studentiList.add(studentBuilder);
             }
 
             studentiTab.setItems(studentiList);
@@ -139,9 +138,9 @@ public non-sealed class StudentiController extends Transitions implements Search
             return;
         }
 
-        odabraniStudent = studentiTab.getSelectionModel().getSelectedItem();
+        odabraniStudentBuilder = studentiTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniStudent == null) {
+        if (odabraniStudentBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -195,9 +194,9 @@ public non-sealed class StudentiController extends Transitions implements Search
             return;
         }
 
-        odabraniStudent = studentiTab.getSelectionModel().getSelectedItem();
+        odabraniStudentBuilder = studentiTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniStudent == null) {
+        if (odabraniStudentBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -261,7 +260,7 @@ public non-sealed class StudentiController extends Transitions implements Search
             smjer.setCellValueFactory(new PropertyValueFactory<>("smjer"));
             godina.setCellValueFactory(new PropertyValueFactory<>("godina"));
 
-            List<Student> students = new ArrayList<>();
+            List<StudentBuilder> studentBuilders = new ArrayList<>();
             while (resultSet.next()) {
                 String jmbag = resultSet.getString("JMBAG");
                 String ime = resultSet.getString("IME");
@@ -270,11 +269,11 @@ public non-sealed class StudentiController extends Transitions implements Search
                 String smjer = resultSet.getString("SMJER");
                 Integer godina = resultSet.getInt("GODINA");
 
-                Student student = new Student(jmbag, ime, prezime, datumRodenja, smjer, godina);
-                students.add(student);
+                StudentBuilder studentBuilder = new StudentBuilder(jmbag, ime, prezime, datumRodenja, smjer, godina);
+                studentBuilders.add(studentBuilder);
             }
 
-            studentiList = students.stream()
+            studentiList = studentBuilders.stream()
                     .collect(Collectors.toCollection(FXCollections::observableArrayList));
 
             studentiTab.setItems(studentiList);

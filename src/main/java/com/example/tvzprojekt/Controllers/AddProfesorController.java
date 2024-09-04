@@ -6,8 +6,7 @@ import com.example.tvzprojekt.Exceptions.PostojeciKeyBaza;
 import com.example.tvzprojekt.Exceptions.PraznoPolje;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Profesor;
-import com.example.tvzprojekt.Model.Promjena;
+import com.example.tvzprojekt.Model.ProfesorBuilder;
 import com.example.tvzprojekt.Model.StatusiPromjene;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -75,9 +74,9 @@ public class AddProfesorController implements DialogControls{
             preparedStatement.executeUpdate();
 
 
-            Profesor profesor = new Profesor(jmbagVal, imeVal, prezimeVal, datumVal, smjerVal);
-            ProfesoriController.profesoriList.add(profesor);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, profesor.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            ProfesorBuilder profesorBuilder = new ProfesorBuilder(jmbagVal, imeVal, prezimeVal, datumVal, smjerVal);
+            ProfesoriController.profesoriList.add(profesorBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, profesorBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();
 

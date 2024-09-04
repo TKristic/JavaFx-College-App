@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Transakcija;
+import com.example.tvzprojekt.Model.TransakcijaBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,9 +52,9 @@ public class PitanjeTransakcija {
         String fileName = "transakcije_" + System.currentTimeMillis() + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (Transakcija transakcija : TransakcijeController.transakcijeList) {
-                String line = String.join(",", String.valueOf(transakcija.getID()), String.valueOf(transakcija.getIznos()),
-                        transakcija.getOpisPlacanja(), transakcija.getDatumTransakcije().toString(), transakcija.getJmbag(), transakcija.getTipKorisnika());
+            for (TransakcijaBuilder transakcijaBuilder : TransakcijeController.transakcijeList) {
+                String line = String.join(",", String.valueOf(transakcijaBuilder.getID()), String.valueOf(transakcijaBuilder.getIznos()),
+                        transakcijaBuilder.getOpisPlacanja(), transakcijaBuilder.getDatumTransakcije().toString(), transakcijaBuilder.getJmbag(), transakcijaBuilder.getTipKorisnika());
                 writer.write(line);
                 writer.newLine();
             }

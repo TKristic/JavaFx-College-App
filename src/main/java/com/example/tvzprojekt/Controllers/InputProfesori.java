@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
-import com.example.tvzprojekt.Model.Profesor;
+import com.example.tvzprojekt.Model.ProfesorBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,8 +14,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -75,9 +73,9 @@ public class InputProfesori implements DialogControls {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Profesor profesor = parseprofesor(line);
-                if (profesor != null) {
-                    ProfesoriController.profesoriList.add(profesor);
+                ProfesorBuilder profesorBuilder = parseprofesor(line);
+                if (profesorBuilder != null) {
+                    ProfesoriController.profesoriList.add(profesorBuilder);
                 }
             }
         } catch (IOException e) {
@@ -86,7 +84,7 @@ public class InputProfesori implements DialogControls {
 
     }
 
-    private static Profesor parseprofesor(String line) {
+    private static ProfesorBuilder parseprofesor(String line) {
         String[] parts = line.split(",");
         if (parts.length == 5) {
             String jmbag = parts[0];
@@ -97,7 +95,7 @@ public class InputProfesori implements DialogControls {
 
 
             LocalDate datumRodjenja = LocalDate.parse(datumString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new Profesor(jmbag, ime, prezime, datumRodjenja, smjer);
+            return new ProfesorBuilder(jmbag, ime, prezime, datumRodjenja, smjer);
 
         }
         return null;
@@ -114,23 +112,23 @@ public class InputProfesori implements DialogControls {
                  PreparedStatement preparedStatement = connection.prepareStatement(sqlInsert);
                  PreparedStatement updateStatement = connection.prepareStatement(updateEntiteti)) {
 
-                for (Profesor profesor : ProfesoriController.profesoriList) {
-                    checkExistence.setString(1, profesor.getJmbag());
+                for (ProfesorBuilder profesorBuilder : ProfesoriController.profesoriList) {
+                    checkExistence.setString(1, profesorBuilder.getJmbag());
                     ResultSet resultSet = checkExistence.executeQuery();
                     if (resultSet.next()) {
                         continue;
                     }
 
-                    updateStatement.setString(1, profesor.getJmbag());
+                    updateStatement.setString(1, profesorBuilder.getJmbag());
                     updateStatement.setString(2, "Profesor");
 
                     updateStatement.executeUpdate();
 
-                    preparedStatement.setString(1, profesor.getJmbag());
-                    preparedStatement.setString(2, profesor.getIme());
-                    preparedStatement.setString(3, profesor.getPrezime());
-                    preparedStatement.setDate(4, Date.valueOf(profesor.getDatumRodenja()));
-                    preparedStatement.setString(5, profesor.getSmjer());
+                    preparedStatement.setString(1, profesorBuilder.getJmbag());
+                    preparedStatement.setString(2, profesorBuilder.getIme());
+                    preparedStatement.setString(3, profesorBuilder.getPrezime());
+                    preparedStatement.setDate(4, Date.valueOf(profesorBuilder.getDatumRodenja()));
+                    preparedStatement.setString(5, profesorBuilder.getSmjer());
 
                     preparedStatement.executeUpdate();
                 }

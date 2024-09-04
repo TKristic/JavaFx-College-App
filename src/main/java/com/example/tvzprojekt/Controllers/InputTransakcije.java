@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
-import com.example.tvzprojekt.Model.Transakcija;
+import com.example.tvzprojekt.Model.TransakcijaBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,8 +14,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -74,9 +72,9 @@ public class InputTransakcije implements DialogControls {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Transakcija transakcija = parseTransakcija(line);
-                if (transakcija != null) {
-                    TransakcijeController.transakcijeList.add(transakcija);
+                TransakcijaBuilder transakcijaBuilder = parseTransakcija(line);
+                if (transakcijaBuilder != null) {
+                    TransakcijeController.transakcijeList.add(transakcijaBuilder);
                 }
             }
         } catch (IOException e) {
@@ -85,7 +83,7 @@ public class InputTransakcije implements DialogControls {
 
     }
 
-    private static Transakcija parseTransakcija(String line) {
+    private static TransakcijaBuilder parseTransakcija(String line) {
         String[] parts = line.split(",");
         if (parts.length == 5) {
             Integer ID = Integer.valueOf(parts[0]);
@@ -96,7 +94,7 @@ public class InputTransakcije implements DialogControls {
             String tip = parts[5];
 
             LocalDate datumRodjenja = LocalDate.parse(datumString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new Transakcija(ID, iznos, opis, datumRodjenja, jmbag, tip);
+            return new TransakcijaBuilder(ID, iznos, opis, datumRodjenja, jmbag, tip);
 
         }
         return null;
@@ -110,18 +108,18 @@ public class InputTransakcije implements DialogControls {
             try (PreparedStatement checkExistence = connection.prepareStatement(sqlCheckExistence);
                  PreparedStatement preparedStatement = connection.prepareStatement(sqlInsert)) {
 
-                for (Transakcija transakcija : TransakcijeController.transakcijeList) {
-                    checkExistence.setInt(1, transakcija.getID());
+                for (TransakcijaBuilder transakcijaBuilder : TransakcijeController.transakcijeList) {
+                    checkExistence.setInt(1, transakcijaBuilder.getID());
                     ResultSet resultSet = checkExistence.executeQuery();
                     if (resultSet.next()) {
                         continue;
                     }
 
-                    preparedStatement.setDouble(1, transakcija.getIznos());
-                    preparedStatement.setString(2, transakcija.getOpisPlacanja());
-                    preparedStatement.setDate(3, Date.valueOf(transakcija.getDatumTransakcije()));
-                    preparedStatement.setString(4, transakcija.getJmbag());
-                    preparedStatement.setString(5, transakcija.getTipKorisnika());
+                    preparedStatement.setDouble(1, transakcijaBuilder.getIznos());
+                    preparedStatement.setString(2, transakcijaBuilder.getOpisPlacanja());
+                    preparedStatement.setDate(3, Date.valueOf(transakcijaBuilder.getDatumTransakcije()));
+                    preparedStatement.setString(4, transakcijaBuilder.getJmbag());
+                    preparedStatement.setString(5, transakcijaBuilder.getTipKorisnika());
 
                     preparedStatement.executeUpdate();
                 }

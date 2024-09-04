@@ -5,9 +5,8 @@ import com.example.tvzprojekt.Exceptions.JMBAGInputException;
 import com.example.tvzprojekt.Exceptions.PraznoPolje;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
-import com.example.tvzprojekt.Model.Transakcija;
+import com.example.tvzprojekt.Model.TransakcijaBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -91,12 +90,12 @@ public class AddTransakcijaController implements DialogControls{
             }
 
 
-            Transakcija transakcija = new Transakcija(TransakcijeController.transakcijeList.size() + 1,
+            TransakcijaBuilder transakcijaBuilder = new TransakcijaBuilder(TransakcijeController.transakcijeList.size() + 1,
                     iznosVal, opisVal, datumVal, jmbagVal, tip);
-            TransakcijeController.transakcijeList.add(transakcija);
+            TransakcijeController.transakcijeList.add(transakcijaBuilder);
 
             preparedStatement.executeUpdate();
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, transakcija.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, transakcijaBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();
 

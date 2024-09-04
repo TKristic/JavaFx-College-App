@@ -37,10 +37,10 @@ public class ModifyProfesorController implements DialogControls {
     public Button cancel;
 
     public void initialize() {
-        labime.setText(ProfesoriController.odabraniProfesor.getIme());
-        labprezime.setText(ProfesoriController.odabraniProfesor.getPrezime());
-        labdatum.setText(ProfesoriController.odabraniProfesor.getDatumRodenja().toString());
-        labsmjer.setText(ProfesoriController.odabraniProfesor.getSmjer());
+        labime.setText(ProfesoriController.odabraniProfesorBuilder.getIme());
+        labprezime.setText(ProfesoriController.odabraniProfesorBuilder.getPrezime());
+        labdatum.setText(ProfesoriController.odabraniProfesorBuilder.getDatumRodenja().toString());
+        labsmjer.setText(ProfesoriController.odabraniProfesorBuilder.getSmjer());
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ModifyProfesorController implements DialogControls {
         String newSmjer = (String) valsmjer.getValue();
         if (newSmjer == null) newSmjer = "";
 
-        ProfesoriController.profesoriList.remove(ProfesoriController.odabraniProfesor);
+        ProfesoriController.profesoriList.remove(ProfesoriController.odabraniProfesorBuilder);
 
 
 
@@ -67,11 +67,11 @@ public class ModifyProfesorController implements DialogControls {
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, (newIme.equals("") ? ProfesoriController.odabraniProfesor.getIme() : newIme));
-            preparedStatement.setString(2, (newPrezime.equals("") ? ProfesoriController.odabraniProfesor.getPrezime() : newPrezime));
-            preparedStatement.setDate(3, (newDatum == null) ? Date.valueOf(ProfesoriController.odabraniProfesor.getDatumRodenja()) : newDatum);
-            preparedStatement.setString(4, (newSmjer.equals("") ? ProfesoriController.odabraniProfesor.getSmjer() : newSmjer));
-            preparedStatement.setString(5, ProfesoriController.odabraniProfesor.getJmbag());
+            preparedStatement.setString(1, (newIme.equals("") ? ProfesoriController.odabraniProfesorBuilder.getIme() : newIme));
+            preparedStatement.setString(2, (newPrezime.equals("") ? ProfesoriController.odabraniProfesorBuilder.getPrezime() : newPrezime));
+            preparedStatement.setDate(3, (newDatum == null) ? Date.valueOf(ProfesoriController.odabraniProfesorBuilder.getDatumRodenja()) : newDatum);
+            preparedStatement.setString(4, (newSmjer.equals("") ? ProfesoriController.odabraniProfesorBuilder.getSmjer() : newSmjer));
+            preparedStatement.setString(5, ProfesoriController.odabraniProfesorBuilder.getJmbag());
 
             preparedStatement.executeUpdate();
 
@@ -79,15 +79,15 @@ public class ModifyProfesorController implements DialogControls {
             e.printStackTrace();
         }
 
-        Profesor profesor = new Profesor(ProfesoriController.odabraniProfesor.getJmbag(),
-                (newIme.equals("") ? ProfesoriController.odabraniProfesor.getIme() : newIme),
-                (newPrezime.equals("") ? ProfesoriController.odabraniProfesor.getPrezime() : newPrezime),
-                ((newDatum == null) ? Date.valueOf(ProfesoriController.odabraniProfesor.getDatumRodenja()) : newDatum).toLocalDate(),
-                (newSmjer.equals("") ? ProfesoriController.odabraniProfesor.getSmjer() : newSmjer));
+        ProfesorBuilder profesorBuilder = new ProfesorBuilder(ProfesoriController.odabraniProfesorBuilder.getJmbag(),
+                (newIme.equals("") ? ProfesoriController.odabraniProfesorBuilder.getIme() : newIme),
+                (newPrezime.equals("") ? ProfesoriController.odabraniProfesorBuilder.getPrezime() : newPrezime),
+                ((newDatum == null) ? Date.valueOf(ProfesoriController.odabraniProfesorBuilder.getDatumRodenja()) : newDatum).toLocalDate(),
+                (newSmjer.equals("") ? ProfesoriController.odabraniProfesorBuilder.getSmjer() : newSmjer));
 
-        ProfesoriController.profesoriList.add(profesor);
-        Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, profesor.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-        ProfesoriController.odabraniProfesor = null;
+        ProfesoriController.profesoriList.add(profesorBuilder);
+        Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, profesorBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+        ProfesoriController.odabraniProfesorBuilder = null;
 
         cancelDialog();
     }

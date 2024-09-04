@@ -2,7 +2,7 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Event;
+import com.example.tvzprojekt.Model.EventBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,20 +48,20 @@ public non-sealed class EventsController extends Transitions implements SearchBa
     @FXML
     public TextField value;
     @FXML
-    public TableView<Event> eventiTab;
+    public TableView<EventBuilder> eventiTab;
     @FXML
-    public TableColumn<Event, Integer> id;
+    public TableColumn<EventBuilder, Integer> id;
     @FXML
-    public TableColumn<Event, String> naziv;
+    public TableColumn<EventBuilder, String> naziv;
     @FXML
-    public TableColumn<Event, Integer> posjecenost;
+    public TableColumn<EventBuilder, Integer> posjecenost;
     @FXML
-    public TableColumn<Event, Double> cijena;
+    public TableColumn<EventBuilder, Double> cijena;
     @FXML
-    public TableColumn<Event, Date> datum;
+    public TableColumn<EventBuilder, Date> datum;
 
-    public static ObservableList<Event> eventiList;
-    public static Event odabraniEvent;
+    public static ObservableList<EventBuilder> eventiList;
+    public static EventBuilder odabraniEventBuilder;
 
     @FXML
     public void initialize() {
@@ -95,8 +94,8 @@ public non-sealed class EventsController extends Transitions implements SearchBa
 
 
 
-                Event event = new Event(id, naziv, posjecenost, cijena, datum);
-                eventiList.add(event);
+                EventBuilder eventBuilder = new EventBuilder(id, naziv, posjecenost, cijena, datum);
+                eventiList.add(eventBuilder);
             }
 
             eventiTab.setItems(eventiList);
@@ -134,9 +133,9 @@ public non-sealed class EventsController extends Transitions implements SearchBa
             return;
         }
 
-        odabraniEvent = eventiTab.getSelectionModel().getSelectedItem();
+        odabraniEventBuilder = eventiTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniEvent == null) {
+        if (odabraniEventBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -173,9 +172,9 @@ public non-sealed class EventsController extends Transitions implements SearchBa
             return;
         }
 
-        odabraniEvent = eventiTab.getSelectionModel().getSelectedItem();
+        odabraniEventBuilder = eventiTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniEvent == null) {
+        if (odabraniEventBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -248,7 +247,7 @@ public non-sealed class EventsController extends Transitions implements SearchBa
             cijena.setCellValueFactory(new PropertyValueFactory<>("cijenaKarte"));
             datum.setCellValueFactory(new PropertyValueFactory<>("datumEventa"));
 
-            List<Event> events = new ArrayList<>();
+            List<EventBuilder> eventBuilders = new ArrayList<>();
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String naziv = resultSet.getString(2);
@@ -256,11 +255,11 @@ public non-sealed class EventsController extends Transitions implements SearchBa
                 double cijena = resultSet.getDouble(4);
                 Date datum = resultSet.getDate(5);
 
-                Event event = new Event(id, naziv, posjecenost, cijena, datum);
-                events.add(event);
+                EventBuilder eventBuilder = new EventBuilder(id, naziv, posjecenost, cijena, datum);
+                eventBuilders.add(eventBuilder);
             }
 
-            eventiList = events.stream()
+            eventiList = eventBuilders.stream()
                     .collect(Collectors.toCollection(FXCollections::observableArrayList));
 
             eventiTab.setItems(eventiList);

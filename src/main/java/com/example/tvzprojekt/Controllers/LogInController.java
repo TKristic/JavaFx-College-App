@@ -73,7 +73,7 @@ public class LogInController {
 
                 JSONArray institucijeArray = (JSONArray) jsonObject.get("institucije");
 
-                List<Institucija> institucije = new ArrayList<>();
+                Set<Institucija> institucije = new HashSet<>();
 
                 for (Object obj : institucijeArray) {
                     JSONObject institucijaJson = (JSONObject) obj;

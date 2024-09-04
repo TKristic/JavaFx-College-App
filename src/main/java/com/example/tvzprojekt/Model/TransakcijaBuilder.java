@@ -2,9 +2,8 @@ package com.example.tvzprojekt.Model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Transakcija implements Serializable {
+public class TransakcijaBuilder implements Serializable {
 
     private int ID;
     private double iznos;
@@ -13,7 +12,7 @@ public class Transakcija implements Serializable {
     private String jmbag;
     private String tipKorisnika;
 
-    public Transakcija(int ID, double iznos, String opisPlacanja, LocalDate datumTransakcije, String jmbag, String tipKorisnika) {
+    public TransakcijaBuilder(int ID, double iznos, String opisPlacanja, LocalDate datumTransakcije, String jmbag, String tipKorisnika) {
         this.ID = ID;
         this.iznos = iznos;
         this.opisPlacanja = opisPlacanja;

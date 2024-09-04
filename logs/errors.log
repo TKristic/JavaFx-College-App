@@ -2440,3 +2440,13 @@
 2024-09-04 13:07:40,978 ERROR [JavaFX Application Thread] c.e.t.Main [AddTransakcijaController.java:84] Navedeni JMBAG ne postoji u bazi
 2024-09-04 13:19:07,168 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
 2024-09-04 13:23:07,562 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
+2024-09-04 14:42:50,620 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
+2024-09-04 14:43:21,216 ERROR [JavaFX Application Thread] c.e.t.Main [AddEventController.java:155] Unesen krivi format (treba biti broj)
+2024-09-04 14:43:28,809 ERROR [JavaFX Application Thread] c.e.t.Main [AddEventController.java:155] Unesen krivi format (treba biti broj)
+2024-09-04 14:44:15,074 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
+2024-09-04 14:44:54,297 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
+2024-09-04 14:46:15,417 INFO [JavaFX Application Thread] c.e.t.Main [RegisterController.java:109] user je registriran
+2024-09-04 14:46:26,200 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] user se ulogirao
+2024-09-04 14:46:31,376 ERROR [JavaFX Application Thread] c.e.t.Main [StudentiController.java:188] user nema permisiju za izvršavanje ove radnje
+2024-09-04 14:48:02,976 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao
+2024-09-04 17:12:39,436 INFO [JavaFX Application Thread] c.e.t.Main [LogInController.java:146] admin se ulogirao

@@ -3,9 +3,8 @@ package com.example.tvzprojekt.Controllers;
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
-import com.example.tvzprojekt.Model.Student;
+import com.example.tvzprojekt.Model.StudentBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -44,11 +43,11 @@ public class ModifyStudentController implements DialogControls{
     public Button cancel;
 
     public void initialize() {
-        labime.setText(StudentiController.odabraniStudent.getIme());
-        labprezime.setText(StudentiController.odabraniStudent.getPrezime());
-        labdatum.setText(StudentiController.odabraniStudent.getDatumRodenja().toString());
-        labsmjer.setText(StudentiController.odabraniStudent.getSmjer());
-        labgodina.setText(StudentiController.odabraniStudent.getGodina().toString());
+        labime.setText(StudentiController.odabraniStudentBuilder.getIme());
+        labprezime.setText(StudentiController.odabraniStudentBuilder.getPrezime());
+        labdatum.setText(StudentiController.odabraniStudentBuilder.getDatumRodenja().toString());
+        labsmjer.setText(StudentiController.odabraniStudentBuilder.getSmjer());
+        labgodina.setText(StudentiController.odabraniStudentBuilder.getGodina().toString());
     }
 
     @Override
@@ -80,19 +79,19 @@ public class ModifyStudentController implements DialogControls{
             }
         }
 
-        StudentiController.studentiList.remove(StudentiController.odabraniStudent);
+        StudentiController.studentiList.remove(StudentiController.odabraniStudentBuilder);
 
         try(Connection connection = DatabaseConnector.getConnection()) {
             String query = "UPDATE STUDENTI SET IME=?, PREZIME=?, DATUM=?, SMJER=?, GODINA=? WHERE JMBAG=?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, (newIme.equals("") ? StudentiController.odabraniStudent.getIme() : newIme));
-            preparedStatement.setString(2, (newPrezime.equals("") ? StudentiController.odabraniStudent.getPrezime() : newPrezime));
-            preparedStatement.setDate(3, (newDatum == null) ? Date.valueOf(StudentiController.odabraniStudent.getDatumRodenja()) : newDatum);
-            preparedStatement.setString(4, (newSmjer.equals("") ? StudentiController.odabraniStudent.getSmjer() : newSmjer));
-            preparedStatement.setInt(5, (newGodina == 0 ? StudentiController.odabraniStudent.getGodina() : newGodina));
-            preparedStatement.setString(6, StudentiController.odabraniStudent.getJmbag());
+            preparedStatement.setString(1, (newIme.equals("") ? StudentiController.odabraniStudentBuilder.getIme() : newIme));
+            preparedStatement.setString(2, (newPrezime.equals("") ? StudentiController.odabraniStudentBuilder.getPrezime() : newPrezime));
+            preparedStatement.setDate(3, (newDatum == null) ? Date.valueOf(StudentiController.odabraniStudentBuilder.getDatumRodenja()) : newDatum);
+            preparedStatement.setString(4, (newSmjer.equals("") ? StudentiController.odabraniStudentBuilder.getSmjer() : newSmjer));
+            preparedStatement.setInt(5, (newGodina == 0 ? StudentiController.odabraniStudentBuilder.getGodina() : newGodina));
+            preparedStatement.setString(6, StudentiController.odabraniStudentBuilder.getJmbag());
 
             preparedStatement.executeUpdate();
 
@@ -100,17 +99,17 @@ public class ModifyStudentController implements DialogControls{
             e.printStackTrace();
         }
 
-        Student student = new Student(StudentiController.odabraniStudent.getJmbag(),
-                (newIme.equals("") ? StudentiController.odabraniStudent.getIme() : newIme),
-                (newPrezime.equals("") ? StudentiController.odabraniStudent.getPrezime() : newPrezime),
-                ((newDatum == null) ? Date.valueOf(StudentiController.odabraniStudent.getDatumRodenja()) : newDatum).toLocalDate(),
-                (newSmjer.equals("") ? StudentiController.odabraniStudent.getSmjer() : newSmjer),
-                (newGodina == 0 ? StudentiController.odabraniStudent.getGodina() : newGodina));
+        StudentBuilder studentBuilder = new StudentBuilder(StudentiController.odabraniStudentBuilder.getJmbag(),
+                (newIme.equals("") ? StudentiController.odabraniStudentBuilder.getIme() : newIme),
+                (newPrezime.equals("") ? StudentiController.odabraniStudentBuilder.getPrezime() : newPrezime),
+                ((newDatum == null) ? Date.valueOf(StudentiController.odabraniStudentBuilder.getDatumRodenja()) : newDatum).toLocalDate(),
+                (newSmjer.equals("") ? StudentiController.odabraniStudentBuilder.getSmjer() : newSmjer),
+                (newGodina == 0 ? StudentiController.odabraniStudentBuilder.getGodina() : newGodina));
 
-        StudentiController.studentiList.add(student);
+        StudentiController.studentiList.add(studentBuilder);
 
-        Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, student.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-        StudentiController.odabraniStudent = null;
+        Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, studentBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+        StudentiController.odabraniStudentBuilder = null;
         cancelDialog();
     }
 

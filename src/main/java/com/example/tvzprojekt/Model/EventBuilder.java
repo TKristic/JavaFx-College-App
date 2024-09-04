@@ -3,7 +3,7 @@ package com.example.tvzprojekt.Model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Event implements Serializable {
+public class EventBuilder implements Serializable {
 
     private int ID;
     private String nazivEventa;
@@ -11,7 +11,7 @@ public class Event implements Serializable {
     private double cijenaKarte;
     private Date datumEventa;
 
-    public Event(int ID, String nazivEventa, int posjecenost, double cijenaKarte, Date datumEventa) {
+    public EventBuilder(int ID, String nazivEventa, int posjecenost, double cijenaKarte, Date datumEventa) {
         this.ID = ID;
         this.nazivEventa = nazivEventa;
         this.posjecenost = posjecenost;

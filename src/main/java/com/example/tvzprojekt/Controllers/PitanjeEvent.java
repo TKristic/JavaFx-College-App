@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Event;
+import com.example.tvzprojekt.Model.EventBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -51,9 +51,9 @@ public class PitanjeEvent {
         String fileName = "eventi_" + System.currentTimeMillis() + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (Event event : EventsController.eventiList) {
-                String line = String.join(",", String.valueOf(event.getID()), event.getNazivEventa(),String.valueOf(event.getPosjecenost()),
-                        String.valueOf(event.getCijenaKarte()), event.getDatumEventa().toString());
+            for (EventBuilder eventBuilder : EventsController.eventiList) {
+                String line = String.join(",", String.valueOf(eventBuilder.getID()), eventBuilder.getNazivEventa(),String.valueOf(eventBuilder.getPosjecenost()),
+                        String.valueOf(eventBuilder.getCijenaKarte()), eventBuilder.getDatumEventa().toString());
                 writer.write(line);
                 writer.newLine();
             }

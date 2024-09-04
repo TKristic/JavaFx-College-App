@@ -2,9 +2,8 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Event;
+import com.example.tvzprojekt.Model.EventBuilder;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -40,10 +39,10 @@ public class ModifyEventController implements DialogControls {
     public Button cancel;
 
     public void initialize() {
-        labnaziv.setText(String.valueOf(EventsController.odabraniEvent.getNazivEventa()));
-        labposjecenost.setText(String.valueOf(EventsController.odabraniEvent.getPosjecenost()));
-        labcijena.setText(String.valueOf(EventsController.odabraniEvent.getCijenaKarte()));
-        labdatum.setText(EventsController.odabraniEvent.getDatumEventa().toString());
+        labnaziv.setText(String.valueOf(EventsController.odabraniEventBuilder.getNazivEventa()));
+        labposjecenost.setText(String.valueOf(EventsController.odabraniEventBuilder.getPosjecenost()));
+        labcijena.setText(String.valueOf(EventsController.odabraniEventBuilder.getCijenaKarte()));
+        labdatum.setText(EventsController.odabraniEventBuilder.getDatumEventa().toString());
     }
 
     @Override
@@ -89,25 +88,25 @@ public class ModifyEventController implements DialogControls {
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            EventsController.eventiList.remove(EventsController.odabraniEvent);
+            EventsController.eventiList.remove(EventsController.odabraniEventBuilder);
 
-            preparedStatement.setString(1, (newnaziv.equals("") ? EventsController.odabraniEvent.getNazivEventa() : newnaziv));
-            preparedStatement.setInt(2, (newposjecenost == 0 ? EventsController.odabraniEvent.getPosjecenost() : newposjecenost));
-            preparedStatement.setDouble(3, (newcijena == 0 ? EventsController.odabraniEvent.getCijenaKarte() : newcijena));
-            preparedStatement.setDate(4, (newDatum == null) ? (java.sql.Date) EventsController.odabraniEvent.getDatumEventa() : newDatum);
-            preparedStatement.setInt(5, EventsController.odabraniEvent.getID());
+            preparedStatement.setString(1, (newnaziv.equals("") ? EventsController.odabraniEventBuilder.getNazivEventa() : newnaziv));
+            preparedStatement.setInt(2, (newposjecenost == 0 ? EventsController.odabraniEventBuilder.getPosjecenost() : newposjecenost));
+            preparedStatement.setDouble(3, (newcijena == 0 ? EventsController.odabraniEventBuilder.getCijenaKarte() : newcijena));
+            preparedStatement.setDate(4, (newDatum == null) ? (java.sql.Date) EventsController.odabraniEventBuilder.getDatumEventa() : newDatum);
+            preparedStatement.setInt(5, EventsController.odabraniEventBuilder.getID());
 
             preparedStatement.executeUpdate();
 
-            Event event = new Event(EventsController.odabraniEvent.getID(),
-                    (newnaziv.equals("") ? EventsController.odabraniEvent.getNazivEventa() : newnaziv),
-                    (newposjecenost == 0 ? EventsController.odabraniEvent.getPosjecenost() : newposjecenost),
-                    (newcijena == 0 ? EventsController.odabraniEvent.getCijenaKarte() : newcijena),
-                    (newDatum == null) ? (java.sql.Date) EventsController.odabraniEvent.getDatumEventa() : newDatum);
+            EventBuilder eventBuilder = new EventBuilder(EventsController.odabraniEventBuilder.getID(),
+                    (newnaziv.equals("") ? EventsController.odabraniEventBuilder.getNazivEventa() : newnaziv),
+                    (newposjecenost == 0 ? EventsController.odabraniEventBuilder.getPosjecenost() : newposjecenost),
+                    (newcijena == 0 ? EventsController.odabraniEventBuilder.getCijenaKarte() : newcijena),
+                    (newDatum == null) ? (java.sql.Date) EventsController.odabraniEventBuilder.getDatumEventa() : newDatum);
 
-            EventsController.eventiList.add(event);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, event.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-            EventsController.odabraniEvent = null;
+            EventsController.eventiList.add(eventBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.PROMJENI, eventBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            EventsController.odabraniEventBuilder = null;
 
         } catch (SQLException e) {
             e.printStackTrace();

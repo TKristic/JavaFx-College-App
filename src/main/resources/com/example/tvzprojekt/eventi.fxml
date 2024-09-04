@@ -195,7 +195,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <HBox  onMouseClicked="#showEventDialog" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.rowIndex="1">
+                <HBox onMouseClicked="#showEventDialog" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                     </GridPane.margin>
@@ -215,7 +215,7 @@
                         </Label>
                     </children>
                 </HBox>
-                <HBox onMouseClicked="#showModifyEventDialog" layoutX="50.0" layoutY="96.0" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.rowIndex="2">
+                <HBox layoutX="50.0" layoutY="96.0" onMouseClicked="#showModifyEventDialog" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.rowIndex="2">
                     <children>
                         <FontAwesomeIcon fill="#7c8184" glyphName="EDIT" size="2.5EM">
                             <HBox.margin>
@@ -235,7 +235,7 @@
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox onMouseClicked="#showDeleteEventDialog" layoutX="10.0" layoutY="161.0" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <HBox layoutX="10.0" layoutY="161.0" onMouseClicked="#showDeleteEventDialog" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
                         <FontAwesomeIcon fill="#7c8184" glyphName="MINUS" size="2.5EM">
                             <HBox.margin>
@@ -255,7 +255,7 @@
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox onMouseClicked="#showIODialog" layoutX="360.0" layoutY="86.0" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <HBox layoutX="360.0" layoutY="86.0" onMouseClicked="#showIODialog" prefHeight="100.0" prefWidth="200.0" styleClass="tile" stylesheets="@../../../stylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
                         <FontAwesomeIcon fill="#7c8184" glyphName="UPLOAD" size="2.5EM">
                             <HBox.margin>
@@ -318,12 +318,12 @@
                                 <Insets top="5.0" />
                             </HBox.margin>
                         </TextField>
-                        <FontAwesomeIcon onMouseClicked="#searchForValue" fill="#7c8184" glyphName="SEARCH" size="2EM" styleClass="searchbtns">
+                        <FontAwesomeIcon fill="#7c8184" glyphName="SEARCH" onMouseClicked="#searchForValue" size="2EM" styleClass="searchbtns">
                             <HBox.margin>
                                 <Insets left="14.0" top="4.0" />
                             </HBox.margin>
                         </FontAwesomeIcon>
-                        <FontAwesomeIcon onMouseClicked="#clearValues" fill="#7c8184" glyphName="TRASH" layoutX="513.0" layoutY="35.0" size="2EM" styleClass="searchbtns">
+                        <FontAwesomeIcon fill="#7c8184" glyphName="TRASH" layoutX="513.0" layoutY="35.0" onMouseClicked="#clearValues" size="2EM" styleClass="searchbtns">
                             <HBox.margin>
                                 <Insets left="14.0" top="4.0" />
                             </HBox.margin>

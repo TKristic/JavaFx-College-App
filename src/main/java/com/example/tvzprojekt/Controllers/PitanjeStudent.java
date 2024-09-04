@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Student;
+import com.example.tvzprojekt.Model.StudentBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,9 +52,9 @@ public class PitanjeStudent {
         String fileName = "studenti_" + System.currentTimeMillis() + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (Student student : StudentiController.studentiList) {
-                String line = String.join(",", student.getJmbag(), student.getIme(), student.getPrezime(),
-                        student.getDatumRodenja().toString(), student.getSmjer(), student.getGodina().toString());
+            for (StudentBuilder studentBuilder : StudentiController.studentiList) {
+                String line = String.join(",", studentBuilder.getJmbag(), studentBuilder.getIme(), studentBuilder.getPrezime(),
+                        studentBuilder.getDatumRodenja().toString(), studentBuilder.getSmjer(), studentBuilder.getGodina().toString());
                 writer.write(line);
                 writer.newLine();
             }

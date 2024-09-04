@@ -1,8 +1,6 @@
 package com.example.tvzprojekt.Controllers;
 
-import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Transakcija;
 import com.example.tvzprojekt.Model.Valuta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,14 +25,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class TecajController extends Transitions {
 

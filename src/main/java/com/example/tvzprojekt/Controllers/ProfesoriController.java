@@ -2,7 +2,7 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Profesor;
+import com.example.tvzprojekt.Model.ProfesorBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -42,17 +42,17 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
     @FXML
     public HBox logBtn;
     @FXML
-    public TableView<Profesor> profesoriTab;
+    public TableView<ProfesorBuilder> profesoriTab;
     @FXML
-    public TableColumn<Profesor, String> jmbag;
+    public TableColumn<ProfesorBuilder, String> jmbag;
     @FXML
-    public TableColumn<Profesor, String> ime;
+    public TableColumn<ProfesorBuilder, String> ime;
     @FXML
-    public TableColumn<Profesor, String> prezime;
+    public TableColumn<ProfesorBuilder, String> prezime;
     @FXML
-    public TableColumn<Profesor, Date> datumRodenja;
+    public TableColumn<ProfesorBuilder, Date> datumRodenja;
     @FXML
-    public TableColumn<Profesor, String> smjer;
+    public TableColumn<ProfesorBuilder, String> smjer;
     @FXML
     public ChoiceBox kategorije;
     @FXML
@@ -62,9 +62,9 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
     @FXML
     public Label status;
 
-    public static Profesor odabraniProfesor;
+    public static ProfesorBuilder odabraniProfesorBuilder;
 
-    public static ObservableList<Profesor> profesoriList;
+    public static ObservableList<ProfesorBuilder> profesoriList;
 
     @FXML
     public void initialize() {
@@ -93,8 +93,8 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
                 LocalDate datumRodenja = resultSet.getDate("DATUM").toLocalDate();
                 String smjer = resultSet.getString("SMJER");
 
-                Profesor profesor = new Profesor(jmbag, ime, prezime, datumRodenja, smjer);
-                profesoriList.add(profesor);
+                ProfesorBuilder profesorBuilder = new ProfesorBuilder(jmbag, ime, prezime, datumRodenja, smjer);
+                profesoriList.add(profesorBuilder);
             }
 
             profesoriTab.setItems(profesoriList);
@@ -136,7 +136,7 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
             datumRodenja.setCellValueFactory(new PropertyValueFactory<>("datumRodenja"));
             smjer.setCellValueFactory(new PropertyValueFactory<>("smjer"));
 
-            List<Profesor> profesori = new ArrayList<>();
+            List<ProfesorBuilder> profesori = new ArrayList<>();
             while (resultSet.next()) {
                 String jmbag = resultSet.getString("JMBAG");
                 String ime = resultSet.getString("IME");
@@ -144,8 +144,8 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
                 LocalDate datumRodenja = resultSet.getDate("DATUM").toLocalDate();
                 String smjer = resultSet.getString("SMJER");
 
-                Profesor profesor = new Profesor(jmbag, ime, prezime, datumRodenja, smjer);
-                profesori.add(profesor);
+                ProfesorBuilder profesorBuilder = new ProfesorBuilder(jmbag, ime, prezime, datumRodenja, smjer);
+                profesori.add(profesorBuilder);
             }
 
             profesoriList = profesori.stream()
@@ -206,9 +206,9 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
             return;
         }
 
-        odabraniProfesor = profesoriTab.getSelectionModel().getSelectedItem();
+        odabraniProfesorBuilder = profesoriTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniProfesor == null) {
+        if (odabraniProfesorBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -245,9 +245,9 @@ public non-sealed class ProfesoriController extends Transitions implements Searc
             return;
         }
 
-        odabraniProfesor = profesoriTab.getSelectionModel().getSelectedItem();
+        odabraniProfesorBuilder = profesoriTab.getSelectionModel().getSelectedItem();
 
-        if (odabraniProfesor == null) {
+        if (odabraniProfesorBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");

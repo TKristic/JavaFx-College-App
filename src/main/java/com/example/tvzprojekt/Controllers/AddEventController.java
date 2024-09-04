@@ -81,20 +81,19 @@ public class AddEventController implements DialogControls {
             ResultSet profesoriSet = profesoriStatement.executeQuery();
 
             while (studentiSet.next()) {
-                odsutniList.add(new Student(studentiSet.getString(1),
+                odsutniList.add(new StudentBuilder(studentiSet.getString(1),
                         studentiSet.getString(2),
                         studentiSet.getString(3),
-                        studentiSet.getDate(4).toLocalDate(),
                         studentiSet.getString(5),
-                        studentiSet.getInt(6)));
+                        "Student"));
             }
 
             while (profesoriSet.next()) {
-                odsutniList.add(new Profesor(profesoriSet.getString(1),
+                odsutniList.add(new ProfesorBuilder(profesoriSet.getString(1),
                         profesoriSet.getString(2),
                         profesoriSet.getString(3),
-                        profesoriSet.getDate(4).toLocalDate(),
-                        profesoriSet.getString(5)));
+                        profesoriSet.getString(5),
+                        "Profesor"));
             }
 
             odsutni.setItems(odsutniList);
@@ -130,9 +129,9 @@ public class AddEventController implements DialogControls {
 
             preparedStatement.executeUpdate();
 
-            Event event = new Event(EventsController.eventiList.size() + 1, nazivVal, prisutniList.size(), cijenaVal, java.sql.Date.valueOf(datumVal));
-            EventsController.eventiList.add(event);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, event.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            EventBuilder eventBuilder = new EventBuilder(EventsController.eventiList.size() + 1, nazivVal, prisutniList.size(), cijenaVal, java.sql.Date.valueOf(datumVal));
+            EventsController.eventiList.add(eventBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, eventBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
 
             for (Entitet element : prisutniList) {
                 String update = "INSERT INTO TRANSAKCIJE(IZNOS, OPIS, DATUM, JMBAG, TIP) VALUES(?, ?, ?, ?, ?)";

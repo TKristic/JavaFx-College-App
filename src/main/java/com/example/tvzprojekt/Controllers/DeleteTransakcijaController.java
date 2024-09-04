@@ -3,7 +3,6 @@ package com.example.tvzprojekt.Controllers;
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,9 +25,9 @@ public class DeleteTransakcijaController {
 
     @FXML
     public void initialize() {
-        label.setText("Jeste li sigurni da želite obrisati transakciju (" + TransakcijeController.odabranaTransakcija.getID() +
-                " " + TransakcijeController.odabranaTransakcija.getOpisPlacanja() + " " +
-                TransakcijeController.odabranaTransakcija.getIznos() + ")");
+        label.setText("Jeste li sigurni da želite obrisati transakciju (" + TransakcijeController.odabranaTransakcijaBuilder.getID() +
+                " " + TransakcijeController.odabranaTransakcijaBuilder.getOpisPlacanja() + " " +
+                TransakcijeController.odabranaTransakcijaBuilder.getIznos() + ")");
     }
 
     public void cancelDialog() {
@@ -38,13 +37,13 @@ public class DeleteTransakcijaController {
 
     public void acceptDialog() {
         try (Connection connection = DatabaseConnector.getConnection()) {
-            String query = "DELETE FROM TRANSAKCIJE WHERE ID_TRANSAKCIJA = " + TransakcijeController.odabranaTransakcija.getID();
+            String query = "DELETE FROM TRANSAKCIJE WHERE ID_TRANSAKCIJA = " + TransakcijeController.odabranaTransakcijaBuilder.getID();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
 
-            TransakcijeController.transakcijeList.remove(TransakcijeController.odabranaTransakcija);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, TransakcijeController.odabranaTransakcija.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-            TransakcijeController.odabranaTransakcija = null;
+            TransakcijeController.transakcijeList.remove(TransakcijeController.odabranaTransakcijaBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, TransakcijeController.odabranaTransakcijaBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            TransakcijeController.odabranaTransakcijaBuilder = null;
 
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();

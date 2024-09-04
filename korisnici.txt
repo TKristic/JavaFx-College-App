@@ -1,1 +1,2 @@
 admin,$2a$10$xwpxFTYy9kK/wS4QFHQxG.Ke32hGMZHKulVfo2inEfHEy3tAeBdHm,true,Tehničko veleučilište u Zagrebu
+user,$2a$10$aAVY9yZ1SN.zp9ql5hKQdOgUW7decPCVklpzOT6hBfCsCere7wrw.,false,Sveučilište u Rijeci

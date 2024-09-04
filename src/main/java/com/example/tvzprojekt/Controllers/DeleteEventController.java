@@ -3,7 +3,6 @@ package com.example.tvzprojekt.Controllers;
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,9 +24,9 @@ public class DeleteEventController implements DialogControls {
 
     @FXML
     public void initialize() {
-        label.setText("Jeste li sigurni da želite obrisati event (" + EventsController.odabraniEvent.getID() +
-                " " + EventsController.odabraniEvent.getNazivEventa() + " " +
-                EventsController.odabraniEvent.getPosjecenost() + ")");
+        label.setText("Jeste li sigurni da želite obrisati event (" + EventsController.odabraniEventBuilder.getID() +
+                " " + EventsController.odabraniEventBuilder.getNazivEventa() + " " +
+                EventsController.odabraniEventBuilder.getPosjecenost() + ")");
     }
 
     public void cancelDialog() {
@@ -37,13 +36,13 @@ public class DeleteEventController implements DialogControls {
 
     public void acceptDialog() {
         try (Connection connection = DatabaseConnector.getConnection()) {
-            String query = "DELETE FROM EVENTI WHERE ID_EVENT = " + EventsController.odabraniEvent.getID();
+            String query = "DELETE FROM EVENTI WHERE ID = " + EventsController.odabraniEventBuilder.getID();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
 
-            EventsController.eventiList.remove(EventsController.odabraniEvent);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, EventsController.odabraniEvent.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-            EventsController.odabraniEvent = null;
+            EventsController.eventiList.remove(EventsController.odabraniEventBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, EventsController.odabraniEventBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            EventsController.odabraniEventBuilder = null;
 
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();

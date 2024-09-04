@@ -110,4 +110,8 @@ public class Main extends Application {
         thread.start();
 
     }
+
+    private static boolean provjeriKljuceve(StudentBuilder a, StudentBuilder b) {
+        return Kljucevi.provjeraKljuceva(a,b);
+    }
 }

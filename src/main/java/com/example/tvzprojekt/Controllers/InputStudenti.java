@@ -1,7 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
-import com.example.tvzprojekt.Model.Student;
+import com.example.tvzprojekt.Model.StudentBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,8 +14,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -75,9 +73,9 @@ public class InputStudenti implements DialogControls {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Student student = parseStudent(line);
-                if (student != null) {
-                    StudentiController.studentiList.add(student);
+                StudentBuilder studentBuilder = parseStudent(line);
+                if (studentBuilder != null) {
+                    StudentiController.studentiList.add(studentBuilder);
                 }
             }
         } catch (IOException e) {
@@ -86,7 +84,7 @@ public class InputStudenti implements DialogControls {
 
     }
 
-    private static Student parseStudent(String line) {
+    private static StudentBuilder parseStudent(String line) {
         String[] parts = line.split(",");
         if (parts.length == 6) {
             String jmbag = parts[0];
@@ -97,7 +95,7 @@ public class InputStudenti implements DialogControls {
             Integer godina = Integer.parseInt(parts[5]);
 
             LocalDate datumRodjenja = LocalDate.parse(datumString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            return new Student(jmbag, ime, prezime, datumRodjenja, smjer, godina);
+            return new StudentBuilder(jmbag, ime, prezime, datumRodjenja, smjer, godina);
 
         }
         return null;
@@ -114,24 +112,24 @@ public class InputStudenti implements DialogControls {
                  PreparedStatement preparedStatement = connection.prepareStatement(sqlInsert);
                  PreparedStatement updateStatement = connection.prepareStatement(updateEntiteti)) {
 
-                for (Student student : StudentiController.studentiList) {
-                    checkExistence.setString(1, student.getJmbag());
+                for (StudentBuilder studentBuilder : StudentiController.studentiList) {
+                    checkExistence.setString(1, studentBuilder.getJmbag());
                     ResultSet resultSet = checkExistence.executeQuery();
                     if (resultSet.next()) {
                         continue;
                     }
 
-                    updateStatement.setString(1, student.getJmbag());
+                    updateStatement.setString(1, studentBuilder.getJmbag());
                     updateStatement.setString(2, "Student");
 
                     updateStatement.executeUpdate();
 
-                    preparedStatement.setString(1, student.getJmbag());
-                    preparedStatement.setString(2, student.getIme());
-                    preparedStatement.setString(3, student.getPrezime());
-                    preparedStatement.setDate(4, Date.valueOf(student.getDatumRodenja()));
-                    preparedStatement.setString(5, student.getSmjer());
-                    preparedStatement.setInt(6, student.getGodina());
+                    preparedStatement.setString(1, studentBuilder.getJmbag());
+                    preparedStatement.setString(2, studentBuilder.getIme());
+                    preparedStatement.setString(3, studentBuilder.getPrezime());
+                    preparedStatement.setDate(4, Date.valueOf(studentBuilder.getDatumRodenja()));
+                    preparedStatement.setString(5, studentBuilder.getSmjer());
+                    preparedStatement.setInt(6, studentBuilder.getGodina());
 
                     preparedStatement.executeUpdate();
                 }

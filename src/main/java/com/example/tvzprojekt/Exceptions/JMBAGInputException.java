@@ -2,7 +2,7 @@ package com.example.tvzprojekt.Exceptions;
 
 import com.example.tvzprojekt.Main;
 
-public class JMBAGInputException extends Exception {
+public class JMBAGInputException extends RuntimeException {
 
     public JMBAGInputException(String message) {
         super(message);

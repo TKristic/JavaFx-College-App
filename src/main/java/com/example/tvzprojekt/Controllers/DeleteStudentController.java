@@ -3,7 +3,6 @@ package com.example.tvzprojekt.Controllers;
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,9 +25,9 @@ public class DeleteStudentController implements DialogControls{
 
     @FXML
     public void initialize() {
-        label.setText("Jeste li sigurni da želite obrisati studenta (" + StudentiController.odabraniStudent.getIme() +
-                " " + StudentiController.odabraniStudent.getPrezime() + " " +
-                StudentiController.odabraniStudent.getJmbag() + ")");
+        label.setText("Jeste li sigurni da želite obrisati studenta (" + StudentiController.odabraniStudentBuilder.getIme() +
+                " " + StudentiController.odabraniStudentBuilder.getPrezime() + " " +
+                StudentiController.odabraniStudentBuilder.getJmbag() + ")");
     }
 
     public void cancelDialog() {
@@ -39,9 +38,9 @@ public class DeleteStudentController implements DialogControls{
     public void acceptDialog() {
         try (Connection connection = DatabaseConnector.getConnection()) {
 
-            String query = "DELETE FROM STUDENTI WHERE JMBAG = " + StudentiController.odabraniStudent.getJmbag();
-            String delete = "DELETE FROM ENTITETI WHERE JMBAG = " + StudentiController.odabraniStudent.getJmbag();
-            String deleteTransakcije = "DELETE FROM TRANSAKCIJE WHERE JMBAG = " + StudentiController.odabraniStudent.getJmbag();
+            String query = "DELETE FROM STUDENTI WHERE JMBAG = " + StudentiController.odabraniStudentBuilder.getJmbag();
+            String delete = "DELETE FROM ENTITETI WHERE JMBAG = " + StudentiController.odabraniStudentBuilder.getJmbag();
+            String deleteTransakcije = "DELETE FROM TRANSAKCIJE WHERE JMBAG = " + StudentiController.odabraniStudentBuilder.getJmbag();
 
             PreparedStatement transakcijeStatement = connection.prepareStatement(deleteTransakcije);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -51,9 +50,9 @@ public class DeleteStudentController implements DialogControls{
             preparedStatement.executeUpdate();
             deleteStatement.executeUpdate();
 
-            StudentiController.studentiList.remove(StudentiController.odabraniStudent);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, StudentiController.odabraniStudent.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
-            StudentiController.odabraniStudent = null;
+            StudentiController.studentiList.remove(StudentiController.odabraniStudentBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.OBRISI, StudentiController.odabraniStudentBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            StudentiController.odabraniStudentBuilder = null;
 
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();

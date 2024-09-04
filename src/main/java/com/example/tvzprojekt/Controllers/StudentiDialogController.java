@@ -6,9 +6,8 @@ import com.example.tvzprojekt.Exceptions.PostojeciKeyBaza;
 import com.example.tvzprojekt.Exceptions.PraznoPolje;
 import com.example.tvzprojekt.Main;
 import com.example.tvzprojekt.Model.IspisPromjene;
-import com.example.tvzprojekt.Model.Promjena;
 import com.example.tvzprojekt.Model.StatusiPromjene;
-import com.example.tvzprojekt.Model.Student;
+import com.example.tvzprojekt.Model.StudentBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -16,7 +15,6 @@ import javafx.stage.Stage;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -77,10 +75,10 @@ public class StudentiDialogController implements DialogControls {
 
             preparedStatement.executeUpdate();
 
-            Student student = new Student(jmbagVal, imeVal, prezimeVal, datumVal, smjerVal, godinaVal);
+            StudentBuilder studentBuilder = new StudentBuilder(jmbagVal, imeVal, prezimeVal, datumVal, smjerVal, godinaVal);
 
-            StudentiController.studentiList.add(student);
-            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, student.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
+            StudentiController.studentiList.add(studentBuilder);
+            Main.zapisivanjePromjene(new IspisPromjene(StatusiPromjene.DODAJ, studentBuilder.getClass().getSimpleName(), Main.getCurrentUser().getUsername(), LocalDateTime.now()));
             Stage stage = (Stage) cancel.getScene().getWindow();
             stage.close();
 

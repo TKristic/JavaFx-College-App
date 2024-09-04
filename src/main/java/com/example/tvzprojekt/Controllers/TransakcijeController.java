@@ -2,7 +2,7 @@ package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
 import com.example.tvzprojekt.Main;
-import com.example.tvzprojekt.Model.Transakcija;
+import com.example.tvzprojekt.Model.TransakcijaBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,21 +50,21 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
     @FXML
     public TextField value;
     @FXML
-    public TableView<Transakcija> transakcijeTab;
+    public TableView<TransakcijaBuilder> transakcijeTab;
     @FXML
-    public TableColumn<Transakcija, Integer> id;
+    public TableColumn<TransakcijaBuilder, Integer> id;
     @FXML
-    public TableColumn<Transakcija, Double> iznos;
+    public TableColumn<TransakcijaBuilder, Double> iznos;
     @FXML
-    public TableColumn<Transakcija, String> opis;
+    public TableColumn<TransakcijaBuilder, String> opis;
     @FXML
-    public TableColumn<Transakcija, Date> datum;
+    public TableColumn<TransakcijaBuilder, Date> datum;
     @FXML
-    public TableColumn<Transakcija, String> jmbag;
+    public TableColumn<TransakcijaBuilder, String> jmbag;
     @FXML
-    public TableColumn<Transakcija, String> tip;
-    public static ObservableList<Transakcija> transakcijeList;
-    public static Transakcija odabranaTransakcija;
+    public TableColumn<TransakcijaBuilder, String> tip;
+    public static ObservableList<TransakcijaBuilder> transakcijeList;
+    public static TransakcijaBuilder odabranaTransakcijaBuilder;
 
     @FXML
     public void initialize() {
@@ -95,8 +95,8 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
                 String jmbag = resultSet.getString("JMBAG");
                 String korisnik = resultSet.getString("TIP");
 
-                Transakcija transakcija = new Transakcija(id, iznos, opis, datum, jmbag, korisnik);
-                transakcijeList.add(transakcija);
+                TransakcijaBuilder transakcijaBuilder = new TransakcijaBuilder(id, iznos, opis, datum, jmbag, korisnik);
+                transakcijeList.add(transakcijaBuilder);
             }
 
             transakcijeTab.setItems(transakcijeList);
@@ -150,9 +150,9 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
             return;
         }
 
-        odabranaTransakcija = transakcijeTab.getSelectionModel().getSelectedItem();
+        odabranaTransakcijaBuilder = transakcijeTab.getSelectionModel().getSelectedItem();
 
-        if (odabranaTransakcija == null) {
+        if (odabranaTransakcijaBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -189,9 +189,9 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
             return;
         }
 
-        odabranaTransakcija = transakcijeTab.getSelectionModel().getSelectedItem();
+        odabranaTransakcijaBuilder = transakcijeTab.getSelectionModel().getSelectedItem();
 
-        if (odabranaTransakcija == null) {
+        if (odabranaTransakcijaBuilder == null) {
             Main.logger.error("Nije odabran entitet za ovu akciju");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Upozorenje");
@@ -264,7 +264,7 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
             jmbag.setCellValueFactory(new PropertyValueFactory<>("jmbag"));
             tip.setCellValueFactory(new PropertyValueFactory<>("tipKorisnika"));
 
-            List<Transakcija> transactions = new ArrayList<>();
+            List<TransakcijaBuilder> transactions = new ArrayList<>();
             while (resultSet.next()) {
                 int id = resultSet.getInt("ID");
                 double iznos = resultSet.getDouble("IZNOS");
@@ -273,8 +273,8 @@ public non-sealed class TransakcijeController extends Transitions implements Sea
                 String jmbag = resultSet.getString("JMBAG");
                 String korisnik = resultSet.getString("TIP_KORISNIKA");
 
-                Transakcija transakcija = new Transakcija(id, iznos, opis, datum, jmbag, korisnik);
-                transactions.add(transakcija);
+                TransakcijaBuilder transakcijaBuilder = new TransakcijaBuilder(id, iznos, opis, datum, jmbag, korisnik);
+                transactions.add(transakcijaBuilder);
             }
 
             transakcijeList = transactions.stream()

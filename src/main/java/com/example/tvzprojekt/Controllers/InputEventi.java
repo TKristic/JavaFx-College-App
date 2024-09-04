@@ -1,8 +1,7 @@
 package com.example.tvzprojekt.Controllers;
 
 import com.example.tvzprojekt.DatabaseConnector;
-import com.example.tvzprojekt.Model.Event;
-import com.example.tvzprojekt.Model.Kljucevi;
+import com.example.tvzprojekt.Model.EventBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -72,9 +71,9 @@ public class InputEventi implements DialogControls{
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Event event = parseEvent(line);
-                if (event != null) {
-                    EventsController.eventiList.add(event);
+                EventBuilder eventBuilder = parseEvent(line);
+                if (eventBuilder != null) {
+                    EventsController.eventiList.add(eventBuilder);
                 }
             }
         } catch (IOException e) {
@@ -83,7 +82,7 @@ public class InputEventi implements DialogControls{
 
     }
 
-    private static Event parseEvent(String line) {
+    private static EventBuilder parseEvent(String line) {
         String[] parts = line.split(",");
         if (parts.length == 5) {
             Integer ID = Integer.valueOf(parts[0]);
@@ -94,7 +93,7 @@ public class InputEventi implements DialogControls{
 
             try {
                 Date datumRodjenja = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datumString).getTime());
-                return new Event(ID, naziv, posjecenost, cijena, datumRodjenja);
+                return new EventBuilder(ID, naziv, posjecenost, cijena, datumRodjenja);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -111,18 +110,18 @@ public class InputEventi implements DialogControls{
             try (PreparedStatement checkExistence = connection.prepareStatement(sqlCheckExistence);
                  PreparedStatement preparedStatement = connection.prepareStatement(sqlInsert)) {
 
-                for (Event event : EventsController.eventiList) {
-                    checkExistence.setInt(1, event.getID());
+                for (EventBuilder eventBuilder : EventsController.eventiList) {
+                    checkExistence.setInt(1, eventBuilder.getID());
                     ResultSet resultSet = checkExistence.executeQuery();
                     if (resultSet.next()) {
                         continue;
                     }
 
-                    preparedStatement.setInt(1, event.getID());
-                    preparedStatement.setString(2, event.getNazivEventa());
-                    preparedStatement.setInt(3, event.getPosjecenost());
-                    preparedStatement.setDouble(4, event.getCijenaKarte());
-                    preparedStatement.setDate(5, (Date) event.getDatumEventa());
+                    preparedStatement.setInt(1, eventBuilder.getID());
+                    preparedStatement.setString(2, eventBuilder.getNazivEventa());
+                    preparedStatement.setInt(3, eventBuilder.getPosjecenost());
+                    preparedStatement.setDouble(4, eventBuilder.getCijenaKarte());
+                    preparedStatement.setDate(5, (Date) eventBuilder.getDatumEventa());
 
                     preparedStatement.executeUpdate();
                 }
