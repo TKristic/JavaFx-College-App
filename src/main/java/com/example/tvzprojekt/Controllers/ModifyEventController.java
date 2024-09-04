@@ -85,7 +85,7 @@ public class ModifyEventController implements DialogControls {
         }
 
         try(Connection connection = DatabaseConnector.getConnection()) {
-            String query = "UPDATE EVENTI SET NAZIV_EVENTA=?, POSJECENOST=?, CIJENA_KARTE=?, DATUM=? WHERE ID_EVENT=?";
+            String query = "UPDATE EVENTI SET NAZIV_EVENTA=?, POSJECENOST=?, CIJENA_KARTE=?, DATUM=? WHERE ID=?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 

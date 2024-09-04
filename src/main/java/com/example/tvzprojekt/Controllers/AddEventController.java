@@ -81,20 +81,20 @@ public class AddEventController implements DialogControls {
             ResultSet profesoriSet = profesoriStatement.executeQuery();
 
             while (studentiSet.next()) {
-                odsutniList.add(new Student(studentiSet.getString(2),
+                odsutniList.add(new Student(studentiSet.getString(1),
+                        studentiSet.getString(2),
                         studentiSet.getString(3),
-                        studentiSet.getString(4),
-                        studentiSet.getDate(5).toLocalDate(),
-                        studentiSet.getString(6),
-                        studentiSet.getInt(7)));
+                        studentiSet.getDate(4).toLocalDate(),
+                        studentiSet.getString(5),
+                        studentiSet.getInt(6)));
             }
 
             while (profesoriSet.next()) {
-                odsutniList.add(new Profesor(profesoriSet.getString(2),
+                odsutniList.add(new Profesor(profesoriSet.getString(1),
+                        profesoriSet.getString(2),
                         profesoriSet.getString(3),
-                        profesoriSet.getString(4),
-                        profesoriSet.getDate(5).toLocalDate(),
-                        profesoriSet.getString(6)));
+                        profesoriSet.getDate(4).toLocalDate(),
+                        profesoriSet.getString(5)));
             }
 
             odsutni.setItems(odsutniList);

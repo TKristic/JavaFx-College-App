@@ -107,7 +107,7 @@ public class InputProfesori implements DialogControls {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String sqlCheckExistence = "SELECT 1 FROM profesori WHERE jmbag = ?";
             String updateEntiteti = "INSERT INTO entiteti (jmbag, tip) VALUES (?, ?)";
-            String sqlInsert = "INSERT INTO profesori (jmbag, ime, prezime, datum_rodenja, profesija) " +
+            String sqlInsert = "INSERT INTO profesori (jmbag, ime, prezime, datum, smjer) " +
                     "VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement checkExistence = connection.prepareStatement(sqlCheckExistence);
@@ -136,7 +136,11 @@ public class InputProfesori implements DialogControls {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Upozorenje");
+            alert.setHeaderText(null);
+            alert.setContentText("Već postoji entitet s tim JMBAG-om");
+            alert.showAndWait();
         }
     }
 }
