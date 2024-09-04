@@ -7,11 +7,17 @@ public class User implements Serializable {
     private String username;
     private String hash;
     private Privilegije status;
+    private String ustanova;
 
-    public User(String username, String hash, Privilegije status) {
+    public String getUstanova() {
+        return ustanova;
+    }
+
+    public User(String username, String hash, Privilegije status, String ustanova) {
         this.username = username;
         this.hash = hash;
         this.status = status;
+        this.ustanova = ustanova;
     }
 
     public String getUsername() {

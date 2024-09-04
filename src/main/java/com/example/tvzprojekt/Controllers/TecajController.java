@@ -7,9 +7,15 @@ import com.example.tvzprojekt.Model.Valuta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -31,6 +37,7 @@ import java.util.Date;
 import java.util.List;
 
 public class TecajController extends Transitions {
+
     @FXML
     public HBox DashBtn;
     @FXML
@@ -63,14 +70,16 @@ public class TecajController extends Transitions {
     public TableColumn<Valuta, String> datum;
     public static ObservableList<Valuta> tecajList;
 
+
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException{
         korisnik.setText("Korisnik : " + Main.getCurrentUser().getUsername());
         status.setText("Status : " + Main.getCurrentUser().getStatus().toString().toLowerCase());
 
         tecajTab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tecajList = FXCollections.observableArrayList();
 
-        sifra.setCellValueFactory(new PropertyValueFactory<>("sifraValute"));
+        sifra.setCellValueFactory(new PropertyValueFactory<>("drzavaIso"));
         drzava.setCellValueFactory(new PropertyValueFactory<>("drzava"));
         kupovni.setCellValueFactory(new PropertyValueFactory<>("kupovniTecaj"));
         prodajni.setCellValueFactory(new PropertyValueFactory<>("prodajniTecaj"));
@@ -87,19 +96,21 @@ public class TecajController extends Transitions {
 
                 try {
                     JSONArray jsonArray = (JSONArray) parser.parse(jsonResponse);
-                    List<Valuta> valute = new ArrayList<>();
 
                     for (Object obj : jsonArray) {
                         JSONObject jsonObject = (JSONObject) obj;
 
+                        int brojTecajnice = Integer.parseInt((String) jsonObject.get("broj_tecajnice"));
                         String datumPrimjene = (String) jsonObject.get("datum_primjene");
                         String drzava = (String) jsonObject.get("drzava");
+                        String drzavaIso = (String) jsonObject.get("drzava_iso");
                         double kupovniTecaj = Double.parseDouble(((String) jsonObject.get("kupovni_tecaj")).replace(",", "."));
                         double prodajniTecaj = Double.parseDouble(((String) jsonObject.get("prodajni_tecaj")).replace(",", "."));
                         String sifraValute = (String) jsonObject.get("sifra_valute");
                         double srednjiTecaj = Double.parseDouble(((String) jsonObject.get("srednji_tecaj")).replace(",", "."));
+                        String valuta = (String) jsonObject.get("valuta");
 
-                        Valuta valutaObj = new Valuta(datumPrimjene, drzava, kupovniTecaj, prodajniTecaj, sifraValute, srednjiTecaj);
+                        Valuta valutaObj = new Valuta(brojTecajnice, datumPrimjene, drzava, drzavaIso, kupovniTecaj, prodajniTecaj, sifraValute, srednjiTecaj, valuta);
                         tecajList.add(valutaObj);
                     }
 
@@ -111,10 +122,26 @@ public class TecajController extends Transitions {
 
 
             } catch (IOException | ParseException e) {
-                e.printStackTrace();
+                noInternet();
             }
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            noInternet();
         }
+    }
+
+    public void noInternet() throws IOException{
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("noInternet.fxml"));
+        Parent root = loader.load();
+
+        Stage dialogStage = new Stage();
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.initOwner(Main.getStage());
+        dialogStage.setTitle("Nema Interneta");
+        dialogStage.getIcons().add(new Image("/icon.png"));
+
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+
+        dialogStage.showAndWait();
     }
 }

@@ -65,8 +65,8 @@ public class Main extends Application {
         getPrimaryStage().show();
     }
 
-    public static void initUser(String username, String password, Privilegije privilegija) {
-        currentUser = new User(username, password, privilegija);
+    public static void initUser(String username, String password, Privilegije privilegija, String ustanova) {
+        currentUser = new User(username, password, privilegija, ustanova);
     }
 
     public static User getCurrentUser() {

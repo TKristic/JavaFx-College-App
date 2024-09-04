@@ -1,2 +1,1 @@
-admin,$2a$10$amb7QpIWeYGIwp4l/gPP8.GWsaa1gNFoy.TXaFYRqPcnuumOkbLZG,true
-korisnik,$2a$10$cl13NivS4vuILjjSvvXh9OaIE0QEzkQ7lVeiHPn/MJQAJqp2QZ9ES,false
+admin,$2a$10$xwpxFTYy9kK/wS4QFHQxG.Ke32hGMZHKulVfo2inEfHEy3tAeBdHm,true,Tehničko veleučilište u Zagrebu
